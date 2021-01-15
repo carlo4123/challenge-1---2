@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
+import KindsOfButton from './kindsOfButton';
+import KindsOfInput from './kindsOfInput';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+function App(){
+
+
+    return (
+ <Router>
+
+           <div className="main">
+
+          
+            <div className="sidebar">
+            <nav className="nav">
+                   
+                    <NavLink className="nav-list__item" activeClassName="active" exact  to="/"> All</NavLink>
+                    <NavLink className="nav-list__item" activeClassName="active"  to="/button"> Active</NavLink>
+                    <NavLink className="nav-list__item" activeClassName="active"  to="/input"> Completed</NavLink>  
+                  
+                </nav>  
+            </div>
+            <div className="container">
+                <div className="content">
+
+               
+            <Route path="/" exact>
+                <h1>HOME</h1>
+            </Route>
+           <Route path="/button">
+            <KindsOfButton/>
+            </Route>
+            
+            <Route path="/input">
+                <KindsOfInput/>
+            </Route>
+            </div>
+            </div>
+            </div>
+     
+        </Router>
+    )
 }
 
-export default App;
+export default App
